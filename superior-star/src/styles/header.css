@@ -1,0 +1,57 @@
+/* src/styles/header.css */
+
+/* Contenedor fijo tipo barra de Mac */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.8); /* Transparencia */
+  backdrop-filter: blur(12px); /* Efecto blur */
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+  z-index: 50;
+  display: flex;
+  justify-content: center; /* Centra el nav */
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Nav principal */
+nav {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 2rem;
+}
+
+/* Links internos */
+.internal-links a {
+  margin: 0 0.75rem;
+  padding-bottom: 2px;
+  text-decoration: none;
+  font-weight: 500;
+  color: #111;
+  transition: border-bottom 0.3s ease;
+}
+
+.internal-links a:hover {
+  border-bottom: 2px solid #6366f1; /* color acento */
+}
+
+/* Social links */
+.social-links a {
+  margin-left: 1rem;
+  transition: transform 0.2s ease;
+}
+
+.social-links a:hover {
+  transform: scale(1.15);
+}
+
+/* Responsive: oculta social links en móviles */
+@media (max-width: 720px) {
+  .social-links {
+    display: none;
+  }
+}
