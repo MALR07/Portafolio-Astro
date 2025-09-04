@@ -3,14 +3,21 @@ import HeaderLink from "./HeaderLink.astro";
 import "../styles/header.css";
 ---
 
+<script>
+  import "../scripts/header.js";
+  import "../scripts/theme.js";
+  import "../scripts/language.js";
+</script>
+
 <header>
   
   <div class="header-bg"></div>
   <nav>
     <div class="internal-links">
-      <HeaderLink href="/">Portafolio</HeaderLink>
-      <HeaderLink href="/blog">Proyectos</HeaderLink>
-      <HeaderLink href="/cv">CV</HeaderLink>
+      <a href="/" data-i18n="portfolio" class="nav-link">Inicio</a>
+      <a href="#proyectos" data-i18n="projects" class="nav-link">Proyectos</a>
+      <a href="#experiencia" data-i18n="experience" class="nav-link">Experiencia</a>
+      <a href="#sobre-mi" data-i18n="about" class="nav-link">Sobre Mí</a>
     </div>
     <button class="theme-toggle" aria-label="Cambiar tema">
         <svg class="moon-icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor">
@@ -22,6 +29,20 @@ import "../styles/header.css";
         </svg>
     </button>
     <div class="social-links">
+      <div class="language-selector">
+        <button class="language-btn" aria-label="Cambiar idioma">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 2a8 8 0 0 1 8 8 8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8z"/>
+            <path d="M12 4c-4.4 0-8 3.6-8 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm5.3 4.3L13 11.6v4.4h-2v-4.4L6.7 8.3 8.3 6.7 12 10.4l3.7-3.7 1.6 1.6z"/>
+          </svg>
+          <span class="current-lang">ES</span>
+        </button>
+        <div class="language-dropdown">
+          <a href="#" data-lang="es" class="active">Español</a>
+          <a href="#" data-lang="en">English</a>
+        </div>
+      </div>
+
       <!-- LinkedIn -->
       <a
         href="https://www.linkedin.com/in/miguel-angel-ledesma-rodriguez-49b8b436b/"
@@ -48,46 +69,4 @@ import "../styles/header.css";
   </nav>
 </header>
 
-<script is:inline>
-document.addEventListener("DOMContentLoaded", () => {
-  const header = document.querySelector("header");
-  if (!header) return;
 
-  // Manejo del scroll
-  let lastScrollY = window.scrollY;
-  const onScroll = () => {
-    const y = window.scrollY;
-    const threshold = window.innerHeight * 0.05;
-
-    if (y > threshold && y > lastScrollY) {
-      header.classList.add("scrolled");
-    } else {
-      header.classList.remove("scrolled");
-    }
-
-    lastScrollY = y;
-  };
-
-  window.addEventListener("scroll", onScroll, { passive: true });
-
-  // Manejo del tema oscuro
-  const themeToggle = document.querySelector('.theme-toggle');
-  
-  // Detectar preferencia del sistema
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  
-  // Verificar si hay un tema guardado
-  const savedTheme = localStorage.getItem('theme');
-  if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-    document.documentElement.classList.add('dark-theme');
-  }
-
-  themeToggle?.addEventListener('click', () => {
-    document.documentElement.classList.toggle('dark-theme');
-    
-    // Guardar preferencia
-    const isDark = document.documentElement.classList.contains('dark-theme');
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
-  });
-});
-</script>

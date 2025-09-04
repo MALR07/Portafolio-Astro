@@ -3,81 +3,126 @@ import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import '../styles/index.css';
 ---
+
+<script>
+  import "../scripts/scroll.js";
+</script>
 
 <!doctype html>
 <html lang="en">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+		<style>
+			body {
+				font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+				-webkit-font-smoothing: antialiased;
+				-moz-osx-font-smoothing: grayscale;
+			}
+		</style>
 	</head>
 	<body>
 		<Header />
-		<main>
-			<h1>¡Hola soy Miguel Ángel ! Un desarrollador de software Full-Stack.</h1>
-			<p>
+		<main class="container">
+			<section class="hero">
+				<img src="/profile-placeholder.jpg" alt="Miguel Ángel Ledesma" class="profile-img"/>
+				<h1 class="hero-title" data-i18n="greeting">¡Hola, soy Miguel Ángel!</h1>
+				<h3 class="hero-subtitle" data-i18n="subtitle">Desarrollador Full-Stack apasionado por la tecnología</h3>
+				
+				<div class="buttons-container">
+					<a href="#proyectos" class="button" data-i18n="viewProjects">Ver Proyectos</a>
+					<a href="#experiencia" class="button" data-i18n="experience">Experiencia</a>
+					<a href="#contacto" class="button" data-i18n="contact">Contactar</a>
+				</div>
+			</section>
 
-		🌟 Siempre abierto a nuevas oportunidades y con muchas ganas de emprender.
-		💻 Las tecnologías que domino son: Java, React, TypeScript, Node, PostgreSQL, HTML y CSS.
-		🚀 En este momento busco un puesto de trabajo, mientras tanto sigo formándome.
-		🌐 Portafolio web: En Proceso
-		🐱 GitHub: https://github.com/MALR07
-		📬 Contáctame: mledesmarodriguez04@gmail.com o miguelangelledesma5b@gmail.com
-	</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to
-				<a href="https://docs.astro.build/">read the docs</a>
-				or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out
-				<a href="https://github.com/Charca/astro-blog-template">astro-blog-template</a>
-				by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
+			<section id="experiencia" class="timeline">
+				<div class="timeline-item">
+					<div class="timeline-content">
+						<h3>Desarrollador Full-Stack</h3>
+						<p>2023 - Presente</p>
+						<p>Desarrollo de aplicaciones web utilizando React, Node.js y PostgreSQL</p>
+					</div>
+				</div>
+				
+				<div class="timeline-item">
+					<div class="timeline-content">
+						<h3>Prácticas en Desarrollo Web</h3>
+						<p>2022 - 2023</p>
+						<p>Experiencia en desarrollo front-end con HTML, CSS y JavaScript</p>
+					</div>
+				</div>
+			</section>
+
+			<section id="proyectos" class="projects">
+				<h2 class="section-title">Proyectos Destacados</h2>
+				<div class="projects-grid">
+					<article class="project-card">
+						<img src="/Web-TFG.jpg" alt="Web TFG" class="project-image"/>
+						<div class="project-content">
+							<h3>Web TFG</h3>
+							<p>Aplicación web full-stack para gestión de restaurante desarrollada con React, Node.js, y PostgreSQL.</p>
+							<div class="project-tech">
+								<span>React</span>
+								<span>Node.js</span>
+								<span>PostgreSQL</span>
+							</div>
+							<div class="project-links">
+								<a href="https://github.com/MALR07/Web-TFG" target="_blank" class="button">Ver Código</a>
+								<a href="#demo" class="button">Ver Demo</a>
+							</div>
+						</div>
+					</article>
+					
+					<article class="project-card">
+						<img src="/portfolio.jpg" alt="Portfolio Personal" class="project-image"/>
+						<div class="project-content">
+							<h3>Portfolio Personal</h3>
+							<p>Sitio web personal desarrollado con Astro y diseñado con inspiración en Metal Gear Solid.</p>
+							<div class="project-tech">
+								<span>Astro</span>
+								<span>JavaScript</span>
+								<span>CSS</span>
+							</div>
+							<div class="project-links">
+								<a href="https://github.com/MALR07/Portafolio-Astro" target="_blank" class="button">Ver Código</a>
+							</div>
+						</div>
+					</article>
+					
+					<article class="project-card">
+						<img src="/api-rest.jpg" alt="API REST" class="project-image"/>
+						<div class="project-content">
+							<h3>API REST</h3>
+							<p>Backend completo con autenticación, gestión de usuarios y operaciones CRUD.</p>
+							<div class="project-tech">
+								<span>Express</span>
+								<span>MongoDB</span>
+								<span>JWT</span>
+							</div>
+							<div class="project-links">
+								<a href="https://github.com/MALR07" target="_blank" class="button">Ver Código</a>
+								<a href="#docs" class="button">Documentación</a>
+							</div>
+						</div>
+					</article>
+				</div>
+			</section>
 			
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to
-				<a href="https://docs.astro.build/">read the docs</a>
-				or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out
-				<a href="https://github.com/Charca/astro-blog-template">astro-blog-template</a>
-				by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
+			<section id="sobre-mi" class="about">
+				<img src="/about-photo.jpg" alt="Miguel Ángel Ledesma" class="about-img"/>
+				<div class="about-content">
+					<h2>Sobre Mí</h2>
+					<p>🌟 Siempre abierto a nuevas oportunidades y con muchas ganas de emprender.</p>
+					<p>💻 Las tecnologías que domino son: Java, React, TypeScript, Node, PostgreSQL, HTML y CSS.</p>
+					<p>🚀 En constante aprendizaje y crecimiento profesional.</p>
+					<p>📬 Contáctame: mledesmarodriguez04@gmail.com</p>
+				</div>
+			</section>
 		</main>
 		<Footer />
 	</body>
