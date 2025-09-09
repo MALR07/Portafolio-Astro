@@ -8,48 +8,37 @@ let translations = {
     },
     "hero": {
       "greeting": "¡Hola, soy Miguel Ángel!",
-      "subtitle": "Desarrollador Full-Stack apasionado por la tecnología",
+      "subtitle": "Desarrollador Web Full-Stack. De Sevilla, España. Graduado en Diseño de Aplicaciones Web.",
       "viewProjects": "Ver Proyectos",
       "experience": "Experiencia",
       "contact": "Contactar"
     },
     "experience": {
-      "title": "Experiencia",
+      "title": "Experiencia Laboral",
       "job1": {
-        "title": "Desarrollador Full-Stack",
-        "period": "2023 - Presente",
-        "description": "Desarrollo de aplicaciones web utilizando React, Node.js y PostgreSQL"
+        "title": "Desarrollador Web Full-Stack Practicas",
+        "period": "Febrero 2025 - Junio 2025",
+        "description": "Fueron mis primeras practicas como Desarrollador Web Full-Stack, donde aprendi muchisimo. Creamos un proyecto llamado Vuela 21 y la desarrollamos de cero con Symfony y Angular."
       },
-      "job2": {
-        "title": "Prácticas en Desarrollo Web",
-        "period": "2022 - 2023",
-        "description": "Experiencia en desarrollo front-end con HTML, CSS y JavaScript"
-      }
+    
     },
     "projects": {
-      "title": "Proyectos Destacados",
+      "title": "Proyectos",
       "webTFG": {
-        "title": "Web TFG",
-        "description": "Aplicación web full-stack para gestión de restaurante desarrollada con React, Node.js, y PostgreSQL.",
+        "title": "Bar Pepin Web(TFG)",
+        "description": "Aplicación web full-stack para gestión de platos y reservas de los mismos desarrollada con React, Node.js, y PostgreSQL",
         "viewCode": "Ver Código",
         "viewDemo": "Ver Demo"
       },
-      "portfolio": {
-        "title": "Portfolio Personal",
-        "description": "Sitio web personal desarrollado con Astro y diseñado con inspiración en Metal Gear Solid."
+      "Web Vuela 21": {
+        "title": "Web Vuela 21",
+        "description": "Durante mi tiempo en practicas en Codearts Solutions, desarrollamos desde cero una aplicación de paquetería. Inicialmente no contábamos con mucha información sobre cómo querían el producto, pero logramos llevarlo a cabo en el tiempo limitado que teníamos, dejando la aplicación completamente funcional."
       },
-      "apiRest": {
-        "title": "API REST",
-        "description": "Backend completo con autenticación, gestión de usuarios y operaciones CRUD.",
-        "viewDocs": "Documentación"
-      }
     },
     "about": {
       "title": "Sobre Mí",
-      "opportunities": "🌟 Siempre abierto a nuevas oportunidades y con muchas ganas de emprender.",
-      "technologies": "💻 Las tecnologías que domino son: Java, React, TypeScript, Node, PostgreSQL, HTML y CSS.",
-      "learning": "🚀 En constante aprendizaje y crecimiento profesional.",
-      "contact": "📬 Contáctame: mledesmarodriguez04@gmail.com"
+      "opportunities": "Hola, soy Miguel Ángel Ledesma, un Programador Web junior graduado en Diseño de Aplicaciones Web (DAW). Actualmente, estoy desarrollando un par de aplicaciones para seguir formándome y mejorar mis habilidades en el desarrollo web.",
+      "technologies": "Tengo muchas ganas de demostrar mis habilidades y dar mi creatividad un paso adelante. Resido en Sevilla, cocretamente en un pueblo llamado Moron de la Frontera, España. Soy una persona sociable, perfeccionista y disciplinada."
     },
     "buttons": {
       "downloadCV": "Descargar Currículum",
@@ -75,44 +64,35 @@ let translations = {
       "experience": "Experience",
       "contact": "Contact"
     },
-    "experience": {
-      "title": "Experience",
-      "job1": {
-        "title": "Full-Stack Developer",
-        "period": "2023 - Present",
-        "description": "Web application development using React, Node.js and PostgreSQL"
-      },
-      "job2": {
-        "title": "Web Development Internship",
-        "period": "2022 - 2023",
-        "description": "Front-end development experience with HTML, CSS and JavaScript"
-      }
+   "experience": {
+    "title": "Work Experience",
+    "job1": {
+      "title": "Full-Stack Web Developer Internship",
+      "period": "February 2025 - June 2025",
+      "description": "Development of web applications using React, Node.js, and PostgreSQL"
+    },
+    
     },
     "projects": {
       "title": "Featured Projects",
       "webTFG": {
-        "title": "Web TFG",
+        "title": "Bar Pepin Web(TFG)",
         "description": "Full-stack web application for restaurant management developed with React, Node.js, and PostgreSQL.",
         "viewCode": "View Code",
         "viewDemo": "View Demo"
       },
-      "portfolio": {
-        "title": "Personal Portfolio",
-        "description": "Personal website developed with Astro and designed with Metal Gear Solid inspiration."
+      "Web Vuela 21": {
+        "title": "Web Vuela 21",
+        "description": "During my internship at Codearts Solutions, we developed a logistics application from scratch. At first, we had little information about the client’s needs, but we managed to complete a fully functional product within the limited time available."
       },
-      "apiRest": {
-        "title": "REST API",
-        "description": "Complete backend with authentication, user management and CRUD operations.",
-        "viewDocs": "Documentation"
-      }
+  
     },
-    "about": {
-      "title": "About Me",
-      "opportunities": "🌟 Always open to new opportunities and eager to start new ventures.",
-      "technologies": "💻 Technologies I master: Java, React, TypeScript, Node, PostgreSQL, HTML and CSS.",
-      "learning": "🚀 Continuously learning and growing professionally.",
-      "contact": "📬 Contact me: mledesmarodriguez04@gmail.com"
-    },
+     "about": {
+    "title": "About Me",
+    "opportunities": "Hi, I'm Miguel Ángel Ledesma, a junior Web Developer graduated in Web Application Development (DAW). Currently, I’m working on several applications to continue learning and improving my skills.",
+    "technologies": "I’m eager to demonstrate my skills and push my creativity forward. I live in Morón de la Frontera, Seville, Spain. I consider myself a sociable, perfectionist, and disciplined person."
+  },
+
     "buttons": {
       "downloadCV": "Download CV",
       "changeTheme": "Change theme",

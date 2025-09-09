@@ -4,6 +4,7 @@ import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 import '../styles/index.css';
+
 ---
 
 <script>
@@ -29,47 +30,48 @@ import '../styles/index.css';
 		<Header />
 		<main class="container">
 			<section class="hero">
-				<img src="/profile-placeholder.jpg" alt="Miguel Ángel Ledesma" class="profile-img"/>
+				<img src="src/assets/cap1.png" alt="Miguel Ángel Ledesma" class="profile-img"/>
 				<h1 class="hero-title" data-i18n="greeting">¡Hola, soy Miguel Ángel!</h1>
-				<h3 class="hero-subtitle" data-i18n="subtitle">Desarrollador Full-Stack apasionado por la tecnología</h3>
-				
+				<h3 class="hero-subtitle" data-i18n="subtitle">Desarrollador Web Full-Stack. De Sevilla, España. Graduado en Diseño de Aplicaciones WEB</h3>
+
 				<div class="buttons-container">
 					<a href="#proyectos" class="button" data-i18n="viewProjects">Ver Proyectos</a>
 					<a href="#experiencia" class="button" data-i18n="experience">Experiencia</a>
-					<a href="#contacto" class="button" data-i18n="contact">Contactar</a>
+					<a href="mailto:mledesmarodriguez04@gmail.com" class="button" data-i18n="contact">Contactar</a>
 				</div>
 			</section>
 
 			<section id="experiencia" class="timeline">
+				<h2 class="section-title" data-i18n="title">Experiencia Laboral</h2>
 				<div class="timeline-item">
 					<div class="timeline-content">
-						<h3>Desarrollador Full-Stack</h3>
-						<p>2023 - Presente</p>
-						<p>Desarrollo de aplicaciones web utilizando React, Node.js y PostgreSQL</p>
-					</div>
-				</div>
-				
-				<div class="timeline-item">
-					<div class="timeline-content">
-						<h3>Prácticas en Desarrollo Web</h3>
-						<p>2022 - 2023</p>
-						<p>Experiencia en desarrollo front-end con HTML, CSS y JavaScript</p>
+						<h2>CodeArts Solutions</h2>
+						<h3>Desarrollador Web Full-Stack Practicas</h3>
+						<p>Febrero 2025 - Junio 2025</p>
+						<p>Fueron mis primeras practicas como Desarrollador Web Full-Stack, donde aprendi muchisimo. Creamos un proyecto llamado Vuela 21 y la desarrollamos de cero con Symfony y Angular.</p>
 					</div>
 				</div>
 			</section>
 
 			<section id="proyectos" class="projects">
-				<h2 class="section-title">Proyectos Destacados</h2>
+				<h2 class="section-title">Proyectos</h2>
 				<div class="projects-grid">
 					<article class="project-card">
-						<img src="/Web-TFG.jpg" alt="Web TFG" class="project-image"/>
+						<img src="src/assets/cap3.png" alt="Web TFG" class="project-image"/>
 						<div class="project-content">
-							<h3>Web TFG</h3>
-							<p>Aplicación web full-stack para gestión de restaurante desarrollada con React, Node.js, y PostgreSQL.</p>
+							<h3>Bar Pepin Web(TFG)</h3>
+							<p>Aplicación web full-stack para gestión de platos y reservas de los mismos desarrollada con React, Node.js, y PostgreSQL.</p>
 							<div class="project-tech">
-								<span>React</span>
-								<span>Node.js</span>
-								<span>PostgreSQL</span>
+								<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+								<span><i class="devicon-react-original colored"></i> React</span>
+								<span><i class="devicon-nodejs-plain colored"></i> Node.js</span>
+								<span><i class="devicon-express-original"></i> Express</span>
+								<span><i class="devicon-typescript-plain colored"></i> TypeScript</span>
+								<span><i class="devicon-tailwindcss-plain colored"></i> Tailwind</span>
+								<span><i class="devicon-postman-plain colored"></i> Postman</span>
+								<span><i class="devicon-postgresql-plain colored"></i>PostgreSQL</span>
+								<span><i class="devicon-javascript-plain colored"></i> JWT</span>
+								<span><i class="devicon-html5-plain colored"></i> HTML</span>
 							</div>
 							<div class="project-links">
 								<a href="https://github.com/MALR07/Web-TFG" target="_blank" class="button">Ver Código</a>
@@ -79,34 +81,22 @@ import '../styles/index.css';
 					</article>
 					
 					<article class="project-card">
-						<img src="/portfolio.jpg" alt="Portfolio Personal" class="project-image"/>
+						<img src="/src/assets/cap 1.png" alt="Web Vuela 21" class="project-image"/>
 						<div class="project-content">
-							<h3>Portfolio Personal</h3>
-							<p>Sitio web personal desarrollado con Astro y diseñado con inspiración en Metal Gear Solid.</p>
+							<h3>Vuela 21</h3>
+							<p>Durante mi tiempo en practicas en Codearts Solutions, desarrollamos desde cero una aplicación de paquetería. Inicialmente no contábamos con mucha información sobre cómo querían el producto, pero logramos llevarlo a cabo en el tiempo limitado que teníamos, dejando la aplicación completamente funcional.</p>
 							<div class="project-tech">
-								<span>Astro</span>
-								<span>JavaScript</span>
-								<span>CSS</span>
+								<!-- Incluye Devicon en tu proyecto -->
+								<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+								<span><i class="devicon-symfony-original"></i> Symfony</span>
+								<span><i class="devicon-angularjs-plain colored"></i> Angular</span>
+								<span><i class="devicon-tailwindcss-plain colored"></i> Tailwind</span>
+								<span><i class="devicon-postman-plain colored"></i> Postman</span>
+								<span><i class="devicon-typescript-plain colored"></i> TypeScript</span>
+								<span><i class="devicon-postgresql-plain colored"></i> PostgreSQL</span>
+								<span><i class="devicon-javascript-plain colored"></i> JWT</span>
+								<span><i class="devicon-html5-plain colored"></i> HTML</span>
 							</div>
-							<div class="project-links">
-								<a href="https://github.com/MALR07/Portafolio-Astro" target="_blank" class="button">Ver Código</a>
-							</div>
-						</div>
-					</article>
-					
-					<article class="project-card">
-						<img src="/api-rest.jpg" alt="API REST" class="project-image"/>
-						<div class="project-content">
-							<h3>API REST</h3>
-							<p>Backend completo con autenticación, gestión de usuarios y operaciones CRUD.</p>
-							<div class="project-tech">
-								<span>Express</span>
-								<span>MongoDB</span>
-								<span>JWT</span>
-							</div>
-							<div class="project-links">
-								<a href="https://github.com/MALR07" target="_blank" class="button">Ver Código</a>
-								<a href="#docs" class="button">Documentación</a>
 							</div>
 						</div>
 					</article>
@@ -114,13 +104,11 @@ import '../styles/index.css';
 			</section>
 			
 			<section id="sobre-mi" class="about">
-				<img src="/about-photo.jpg" alt="Miguel Ángel Ledesma" class="about-img"/>
+				<img src="/src/assets/cap2.jpg" alt="Miguel Ángel Ledesma" class="about-img"/>
 				<div class="about-content">
 					<h2>Sobre Mí</h2>
-					<p>🌟 Siempre abierto a nuevas oportunidades y con muchas ganas de emprender.</p>
-					<p>💻 Las tecnologías que domino son: Java, React, TypeScript, Node, PostgreSQL, HTML y CSS.</p>
-					<p>🚀 En constante aprendizaje y crecimiento profesional.</p>
-					<p>📬 Contáctame: mledesmarodriguez04@gmail.com</p>
+					<p>Hola, soy Miguel Ángel Ledesma, un Programador Web junior graduado en Diseño de Aplicaciones Web (DAW). Actualmente, estoy desarrollando un par de aplicaciones para seguir formándome y mejorar mis habilidades en el desarrollo web.</p>
+					<p>Tengo muchas ganas de demostrar mis habilidades y dar mi creatividad un paso adelante. Resido en Sevilla, cocretamente en un pueblo llamado Moron de la Frontera, España. Soy una persona sociable, perfeccionista y disciplinada.</p>
 				</div>
 			</section>
 		</main>
