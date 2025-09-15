@@ -16,29 +16,28 @@ let translations = {
     "experience": {
       "title": "Experiencia Laboral",
       "job1": {
-        "title": "Desarrollador Web Full-Stack Practicas",
+        "title": "Desarrollador Web Full-Stack Prácticas",
         "period": "Febrero 2025 - Junio 2025",
-        "description": "Fueron mis primeras practicas como Desarrollador Web Full-Stack, donde aprendi muchisimo. Creamos un proyecto llamado Vuela 21 y la desarrollamos de cero con Symfony y Angular."
+        "description": "Fueron mis primeras prácticas como Desarrollador Web Full-Stack, donde aprendí muchísimo. Creamos un proyecto llamado Vuela 21 y lo desarrollamos desde cero con Symfony y Angular."
       },
-    
     },
     "projects": {
       "title": "Proyectos",
       "webTFG": {
-        "title": "Bar Pepin Web(TFG)",
-        "description": "Aplicación web full-stack para gestión de platos y reservas de los mismos desarrollada con React, Node.js, y PostgreSQL",
+        "title": "Bar Pepin Web (TFG)",
+        "description": "Aplicación web full-stack para gestión de platos y reservas de los mismos desarrollada con React, Node.js, y PostgreSQL.",
         "viewCode": "Ver Código",
         "viewDemo": "Ver Demo"
       },
-      "Web Vuela 21": {
+      "webVuela21": {
         "title": "Web Vuela 21",
-        "description": "Durante mi tiempo en practicas en Codearts Solutions, desarrollamos desde cero una aplicación de paquetería. Inicialmente no contábamos con mucha información sobre cómo querían el producto, pero logramos llevarlo a cabo en el tiempo limitado que teníamos, dejando la aplicación completamente funcional."
-      },
+        "description": "Durante mi tiempo en prácticas en Codearts Solutions, desarrollamos desde cero una aplicación de paquetería. Inicialmente no contábamos con mucha información sobre cómo querían el producto, pero logramos llevarlo a cabo en el tiempo limitado que teníamos, dejando la aplicación completamente funcional."
+      }
     },
     "about": {
       "title": "Sobre Mí",
       "opportunities": "Hola, soy Miguel Ángel Ledesma, un Programador Web junior graduado en Diseño de Aplicaciones Web (DAW). Actualmente, estoy desarrollando un par de aplicaciones para seguir formándome y mejorar mis habilidades en el desarrollo web.",
-      "technologies": "Tengo muchas ganas de demostrar mis habilidades y dar mi creatividad un paso adelante. Resido en Sevilla, cocretamente en un pueblo llamado Moron de la Frontera, España. Soy una persona sociable, perfeccionista y disciplinada."
+      "technologies": "Tengo muchas ganas de demostrar mis habilidades y dar mi creatividad un paso adelante. Resido en Sevilla, concretamente en un pueblo llamado Morón de la Frontera, España. Soy una persona sociable, perfeccionista y disciplinada."
     },
     "buttons": {
       "downloadCV": "Descargar Currículum",
@@ -59,40 +58,38 @@ let translations = {
     },
     "hero": {
       "greeting": "Hi, I'm Miguel Ángel!",
-      "subtitle": "Passionate Full-Stack Developer",
+      "subtitle": "Full-Stack Web Developer from Seville, Spain. Graduate in Web Application Development.",
       "viewProjects": "View Projects",
       "experience": "Experience",
       "contact": "Contact"
     },
-   "experience": {
-    "title": "Work Experience",
-    "job1": {
-      "title": "Full-Stack Web Developer Internship",
-      "period": "February 2025 - June 2025",
-      "description": "Development of web applications using React, Node.js, and PostgreSQL"
+    "experience": {
+      "title": "Work Experience",
+      "job1": {
+        "title": "Full-Stack Web Developer Internship",
+        "period": "February 2025 - June 2025",
+        "description": "My first internship as a Full-Stack Web Developer, where I learned a lot. We created a project called Vuela 21 and developed it from scratch using Symfony and Angular."
+      },
     },
-    
-    },
+
     "projects": {
-      "title": "Featured Projects",
+      "title": "Projects",
       "webTFG": {
-        "title": "Bar Pepin Web(TFG)",
+        "title": "Bar Pepin Web (TFG)",
         "description": "Full-stack web application for restaurant management developed with React, Node.js, and PostgreSQL.",
         "viewCode": "View Code",
         "viewDemo": "View Demo"
       },
-      "Web Vuela 21": {
+      "webVuela21": {
         "title": "Web Vuela 21",
-        "description": "During my internship at Codearts Solutions, we developed a logistics application from scratch. At first, we had little information about the client’s needs, but we managed to complete a fully functional product within the limited time available."
-      },
-  
+        "description": "During my internship at Codearts Solutions, we developed a logistics application from scratch. At first, we had little information about the client’s needs, but we managed to deliver a fully functional application within the limited time available."
+      }
     },
-     "about": {
-    "title": "About Me",
-    "opportunities": "Hi, I'm Miguel Ángel Ledesma, a junior Web Developer graduated in Web Application Development (DAW). Currently, I’m working on several applications to continue learning and improving my skills.",
-    "technologies": "I’m eager to demonstrate my skills and push my creativity forward. I live in Morón de la Frontera, Seville, Spain. I consider myself a sociable, perfectionist, and disciplined person."
-  },
-
+    "about": {
+      "title": "About Me",
+      "opportunities": "Hi, I'm Miguel Ángel Ledesma, a junior Web Developer graduated in Web Application Development (DAW). Currently, I’m developing a couple of applications to continue learning and improving my web development skills.",
+      "technologies": "I’m eager to demonstrate my skills and take my creativity to the next level. I live in Morón de la Frontera, Seville, Spain. I consider myself a sociable, perfectionist, and disciplined person."
+    },
     "buttons": {
       "downloadCV": "Download CV",
       "changeTheme": "Change theme",
@@ -104,6 +101,7 @@ let translations = {
     }
   }
 };
+
 
 document.addEventListener('DOMContentLoaded', () => {
   const langBtn = document.querySelector('.language-btn');
