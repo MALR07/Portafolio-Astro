@@ -3,12 +3,11 @@
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import { defineConfig } from 'astro/config';
-import netlify from '@astrojs/netlify';
+import netlify from '@astrojs/netlify/functions';
 
 // https://astro.build/config
 export default defineConfig({
-	output: 'static',
-	adapter: netlify(),
+	adapter: netlify({}),
 	site: 'https://portafoliomalr.netlify.app', // <- tu dominio de Netlify o temporal
 	integrations: [mdx(), sitemap()],
 	devToolbar: {
