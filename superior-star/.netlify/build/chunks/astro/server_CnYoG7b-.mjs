@@ -1,6 +1,6 @@
 import 'kleur/colors';
-import { clsx } from 'clsx';
 import { escape } from 'html-escaper';
+import { clsx } from 'clsx';
 import { encodeBase64, encodeHexUpperCase, decodeBase64 } from '@oslojs/encoding';
 import { z } from 'zod';
 import 'cssesc';
@@ -125,48 +125,6 @@ const InvalidComponentArgs = {
   message: (name) => `Invalid arguments passed to${name ? ` <${name}>` : ""} component.`,
   hint: "Astro components cannot be rendered directly via function call, such as `Component()` or `{items.map(Component)}`."
 };
-const ImageMissingAlt = {
-  name: "ImageMissingAlt",
-  title: 'Image missing required "alt" property.',
-  message: 'Image missing "alt" property. "alt" text is required to describe important images on the page.',
-  hint: 'Use an empty string ("") for decorative images.'
-};
-const InvalidImageService = {
-  name: "InvalidImageService",
-  title: "Error while loading image service.",
-  message: "There was an error loading the configured image service. Please see the stack trace for more information."
-};
-const FailedToFetchRemoteImageDimensions = {
-  name: "FailedToFetchRemoteImageDimensions",
-  title: "Failed to retrieve remote image dimensions",
-  message: (imageURL) => `Failed to get the dimensions for ${imageURL}.`,
-  hint: "Verify your remote image URL is accurate, and that you are not using `inferSize` with a file located in your `public/` folder."
-};
-const ExpectedImage = {
-  name: "ExpectedImage",
-  title: "Expected src to be an image.",
-  message: (src, typeofOptions, fullOptions) => `Expected \`src\` property for \`getImage\` or \`<Image />\` to be either an ESM imported image or a string with the path of a remote image. Received \`${src}\` (type: \`${typeofOptions}\`).
-
-Full serialized options received: \`${fullOptions}\`.`,
-  hint: "This error can often happen because of a wrong path. Make sure the path to your image is correct. If you're passing an async function, make sure to call and await it."
-};
-const ExpectedImageOptions = {
-  name: "ExpectedImageOptions",
-  title: "Expected image options.",
-  message: (options) => `Expected getImage() parameter to be an object. Received \`${options}\`.`
-};
-const ExpectedNotESMImage = {
-  name: "ExpectedNotESMImage",
-  title: "Expected image options, not an ESM-imported image.",
-  message: "An ESM-imported image cannot be passed directly to `getImage()`. Instead, pass an object with the image in the `src` property.",
-  hint: "Try changing `getImage(myImage)` to `getImage({ src: myImage })`"
-};
-const NoImageMetadata = {
-  name: "NoImageMetadata",
-  title: "Could not process image metadata.",
-  message: (imagePath) => `Could not process image metadata${imagePath ? ` for \`${imagePath}\`` : ""}.`,
-  hint: "This is often caused by a corrupted or malformed image. Re-exporting the image from your image editor may fix this issue."
-};
 const AstroGlobUsedOutside = {
   name: "AstroGlobUsedOutside",
   title: "Astro.glob() used outside of an Astro file.",
@@ -178,27 +136,6 @@ const AstroGlobNoMatch = {
   title: "Astro.glob() did not match any files.",
   message: (globStr) => `\`Astro.glob(${globStr})\` did not return any matching files.`,
   hint: "Check the pattern for typos."
-};
-const ExperimentalFontsNotEnabled = {
-  name: "ExperimentalFontsNotEnabled",
-  title: "Experimental fonts are not enabled",
-  message: "The Font component is used but experimental fonts have not been registered in the config.",
-  hint: "Check that you have enabled experimental fonts and also configured your preferred fonts."
-};
-const FontFamilyNotFound = {
-  name: "FontFamilyNotFound",
-  title: "Font family not found",
-  message: (family) => `No data was found for the \`"${family}"\` family passed to the \`<Font>\` component.`,
-  hint: "This is often caused by a typo. Check that your Font component is using a `cssVariable` specified in your config."
-};
-const UnknownContentCollectionError = {
-  name: "UnknownContentCollectionError",
-  title: "Unknown Content Collection Error."
-};
-const RenderUndefinedEntryError = {
-  name: "RenderUndefinedEntryError",
-  title: "Attempted to render an undefined content collection entry.",
-  hint: "Check if the entry is undefined before passing it to `render()`"
 };
 
 function validateArgs(args) {
@@ -263,7 +200,7 @@ function createAstro(site) {
   return {
     // TODO: this is no longer necessary for `Astro.site`
     // but it somehow allows working around caching issues in content collections for some tests
-    site: void 0,
+    site: new URL(site) ,
     generator: `Astro v${ASTRO_VERSION}`,
     glob: createAstroGlobFn()
   };
@@ -272,27 +209,8 @@ function createAstro(site) {
 function isPromise(value) {
   return !!value && typeof value === "object" && "then" in value && typeof value.then === "function";
 }
-async function* streamAsyncIterator(stream) {
-  const reader = stream.getReader();
-  try {
-    while (true) {
-      const { done, value } = await reader.read();
-      if (done) return;
-      yield value;
-    }
-  } finally {
-    reader.releaseLock();
-  }
-}
 
 const escapeHTML = escape;
-class HTMLBytes extends Uint8Array {
-}
-Object.defineProperty(HTMLBytes.prototype, Symbol.toStringTag, {
-  get() {
-    return "HTMLBytes";
-  }
-});
 class HTMLString extends String {
   get [Symbol.toStringTag]() {
     return "HTMLString";
@@ -309,49 +227,6 @@ const markHTMLString = (value) => {
 };
 function isHTMLString(value) {
   return Object.prototype.toString.call(value) === "[object HTMLString]";
-}
-function markHTMLBytes(bytes) {
-  return new HTMLBytes(bytes);
-}
-function hasGetReader(obj) {
-  return typeof obj.getReader === "function";
-}
-async function* unescapeChunksAsync(iterable) {
-  if (hasGetReader(iterable)) {
-    for await (const chunk of streamAsyncIterator(iterable)) {
-      yield unescapeHTML(chunk);
-    }
-  } else {
-    for await (const chunk of iterable) {
-      yield unescapeHTML(chunk);
-    }
-  }
-}
-function* unescapeChunks(iterable) {
-  for (const chunk of iterable) {
-    yield unescapeHTML(chunk);
-  }
-}
-function unescapeHTML(str) {
-  if (!!str && typeof str === "object") {
-    if (str instanceof Uint8Array) {
-      return markHTMLBytes(str);
-    } else if (str instanceof Response && str.body) {
-      const body = str.body;
-      return unescapeChunksAsync(body);
-    } else if (typeof str.then === "function") {
-      return Promise.resolve(str).then((value) => {
-        return unescapeHTML(value);
-      });
-    } else if (str[Symbol.for("astro:slot-string")]) {
-      return str;
-    } else if (Symbol.iterator in str) {
-      return unescapeChunks(str);
-    } else if (Symbol.asyncIterator in str || hasGetReader(str)) {
-      return unescapeChunksAsync(str);
-    }
-  }
-  return markHTMLString(str);
 }
 
 function isAstroComponentFactory(obj) {
@@ -650,13 +525,6 @@ function shorthash(text) {
 const headAndContentSym = Symbol.for("astro.headAndContent");
 function isHeadAndContent(obj) {
   return typeof obj === "object" && obj !== null && !!obj[headAndContentSym];
-}
-function createHeadAndContent(head, content) {
-  return {
-    [headAndContentSym]: true,
-    head,
-    content
-  };
 }
 function createThinHead() {
   return {
@@ -2191,23 +2059,6 @@ async function renderScript(result, id) {
   );
 }
 
-function renderScriptElement({ props, children }) {
-  return renderElement$1("script", {
-    props,
-    children
-  });
-}
-function renderUniqueStylesheet(result, sheet) {
-  if (sheet.type === "external") {
-    if (Array.from(result.styles).some((s) => s.props.href === sheet.src)) return "";
-    return renderElement$1("link", { props: { rel: "stylesheet", href: sheet.src }, children: "" });
-  }
-  if (sheet.type === "inline") {
-    if (Array.from(result.styles).some((s) => s.children.includes(sheet.content))) return "";
-    return renderElement$1("style", { props: {}, children: sheet.content });
-  }
-}
-
 "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-_".split("").reduce((v, c) => (v[c.charCodeAt(0)] = c, v), []);
 "-0123456789_".split("").reduce((v, c) => (v[c.charCodeAt(0)] = c, v), []);
 
@@ -2295,4 +2146,4 @@ function createVNode(type, props = {}, key) {
   return vnode;
 }
 
-export { AstroError as A, ExpectedImageOptions as E, FailedToFetchRemoteImageDimensions as F, InvalidImageService as I, NoImageMetadata as N, RenderUndefinedEntryError as R, UnknownContentCollectionError as U, ExpectedImage as a, ExpectedNotESMImage as b, createComponent as c, createAstro as d, ImageMissingAlt as e, addAttribute as f, ExperimentalFontsNotEnabled as g, FontFamilyNotFound as h, renderUniqueStylesheet as i, renderScriptElement as j, createHeadAndContent as k, renderComponent as l, maybeRenderHead as m, renderHead as n, renderScript as o, NOOP_MIDDLEWARE_HEADER as p, decodeKey as q, renderTemplate as r, spreadAttributes as s, toStyleString as t, unescapeHTML as u, renderJSX as v, createVNode as w, AstroJSX as x, AstroUserError as y };
+export { AstroJSX as A, NOOP_MIDDLEWARE_HEADER as N, createComponent as a, addAttribute as b, createAstro as c, renderScript as d, renderComponent as e, renderHead as f, decodeKey as g, renderJSX as h, createVNode as i, AstroUserError as j, maybeRenderHead as m, renderTemplate as r };

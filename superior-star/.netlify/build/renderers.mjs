@@ -1,5 +1,6 @@
-import { v as renderJSX, w as createVNode, x as AstroJSX, y as AstroUserError } from './chunks/astro/server_Cxeq-q96.mjs';
+import { h as renderJSX, i as createVNode, A as AstroJSX, j as AstroUserError } from './chunks/astro/server_CnYoG7b-.mjs';
 import 'kleur/colors';
+import 'html-escaper';
 import 'clsx';
 
 const slotName = (str) => str.trim().replace(/[-_]([a-z])/g, (_, w) => w.toUpperCase());

@@ -9,6 +9,7 @@ import netlify from '@astrojs/netlify';
 export default defineConfig({
 	output: 'static',
 	adapter: netlify(),
+	site: 'https://portafoliomalr.netlify.app', // <- tu dominio de Netlify o temporal
 	integrations: [mdx(), sitemap()],
 	devToolbar: {
 		enabled: false

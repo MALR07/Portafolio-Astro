@@ -4,12 +4,14 @@ import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
 import "../styles/index.css";
+
 ---
 
 <script>
   import "../scripts/scroll.js";
 </script>
 
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
@@ -44,7 +46,7 @@ import "../styles/index.css";
     <!-- HERO -->
     <section class="hero">
       <img
-        src="src/assets/cap1.png"
+        src="/cap1.png"
         alt="Miguel Ángel Ledesma"
         class="profile-img"
       />
@@ -179,7 +181,7 @@ import "../styles/index.css";
             <article class="project-card project-left">
               <div class="project-image-wrapper">
                 <img
-                  src="src/assets/cap3.png"
+                  src="/cap3.png"
                   alt="Web TFG"
                   class="project-image"
                 />
@@ -236,7 +238,7 @@ import "../styles/index.css";
             <article class="project-card project-right">
               <div class="project-image-wrapper">
                 <img
-                  src="/src/assets/cap 1.png"
+                  src="/cap 1.png"
                   alt="Web Vuela 21"
                   class="project-image"
                 />
@@ -285,7 +287,7 @@ import "../styles/index.css";
         <!-- SOBRE MI -->
         <section id="sobre-mi" class="about">
           <img
-            src="/src/assets/cap2.jpg"
+            src="/cap2.jpg"
             alt="Miguel Ángel Ledesma"
             class="about-img"
           />
