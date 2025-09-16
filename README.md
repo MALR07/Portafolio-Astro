@@ -3,6 +3,8 @@
 ¡Hola! 👋 Soy **Miguel Ángel**, un desarrollador web apasionado por crear experiencias digitales únicas.  
 Este es mi **primer portafolio**, construido con [Astro](https://astro.build/) y Docker, donde muestro mis proyectos, habilidades y contacto.
 
+<img width="2481" height="1301" alt="image" src="https://github.com/user-attachments/assets/d006b079-4e80-46f3-b1f9-734d19bddd4b" />
+
 ---
 
 ## 🚀 Acerca de mí
