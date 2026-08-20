@@ -1,0 +1,729 @@
+/* Contenedor principal fijo tipo Mac */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 50;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+}
+
+header nav, 
+header .social-links,
+header .social-links a {
+  pointer-events: auto !important;
+}
+
+/* Fondo de la barra */
+header .header-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background: var(--header-bg);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 2px 12px var(--shadow-color);
+  z-index: -1;
+  transform-origin: center;
+  transition: all 0.3s ease;
+}
+
+/* Barra cerrándose de ambos lados al hacer scroll */
+header.scrolled .header-bg {
+  transform: scaleX(0);
+  opacity: 0;
+}
+
+/* Contenido del header */
+nav {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 2rem;
+  pointer-events: auto;
+  transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Links internos */
+.internal-links {
+  display: flex;
+  gap: 1rem;
+  transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  justify-content: flex-start;
+  position: relative;
+  z-index: 100;
+  width: 100%;
+  transform: translateX(0);
+  padding-left: 2rem;
+}
+
+/* Cuando se activa scroll: links centrados y estilo botón */
+header.scrolled .internal-links {
+  justify-content: center;
+  transform: translateX(10%);
+  width: 100%;
+  transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  padding-left: 0;
+}
+
+/* Animación individual para cada link */
+.internal-links a {
+  transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  font-size: 1.2rem;
+  padding: 0.7rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.5rem;
+  line-height: 1;
+  text-align: center;
+}
+
+header.scrolled .internal-links a {
+  font-size: 1rem;
+  min-height: 2.2rem;
+  padding: 0.5rem 1.2rem;
+  transition: all 0.3s ease;
+}
+
+@keyframes softGlow {
+  0% { color: #8b5cf6; }
+  50% { color: #a855f7; }
+  100% { color: #8b5cf6; }
+}
+
+.internal-links a:hover {
+  animation: softGlow 2s infinite ease-in-out;
+}
+
+header.scrolled .internal-links a {
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  background: linear-gradient(to bottom, #2a2a2a, #404040);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  backdrop-filter: blur(8px);
+  border: 1px solid #505050;
+  transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+}
+
+/* Links normales antes de scroll */
+.internal-links a {
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+  font-weight: 500;
+  color: #8b5cf6;
+  text-decoration: none !important;
+  cursor: pointer;
+  transition: all 2s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 2s cubic-bezier(0.4, 0, 0.2, 1),
+              background 1.5s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid transparent;
+  background: transparent;
+  box-shadow: none;
+  transform: translateX(0);
+}
+
+/* Hover en links */
+.internal-links a:hover {
+  color: #fff;
+}
+
+/* Link activo/seleccionado */
+.internal-links a[aria-current="page"] {
+  text-decoration: none !important;
+  color: #fff;
+}
+
+/* Estilos de contenedor solo cuando hay scroll */
+header.scrolled .internal-links a {
+  background: linear-gradient(to bottom, #1f1f1f 95%, #2d2d2d);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  color: #ffffff;
+  border-radius: 1rem;
+  transition: all 0.3s ease;
+}
+
+header.scrolled .internal-links a:hover {
+  background: linear-gradient(to bottom, #2d2d2d 95%, #3a3a3a);
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 2px 8px rgba(168, 85, 247, 0.3);
+  color: #e0d5ff;
+  transform: translateY(-2px);
+}
+
+header.scrolled .internal-links a[aria-current="page"] {
+  background: linear-gradient(to bottom, #3a3a3a 95%, #454545);
+  border-color: rgba(168, 85, 247, 0.5);
+  box-shadow: 0 2px 8px rgba(168, 85, 247, 0.3);
+  color: #d8b4fe;
+}
+
+/* Animación suave del color al hacer hover */
+@keyframes containerGlow {
+  0% { background: linear-gradient(to bottom, #333333, #444444); }
+  50% { background: linear-gradient(to bottom, #2a2a2a, #3a3a3a); }
+  100% { background: linear-gradient(to bottom, #333333, #444444); }
+}
+
+header.scrolled .internal-links a:hover {
+  animation: containerGlow 2s infinite ease-in-out,
+             softGlow 2s infinite ease-in-out;
+}
+
+/* Language selector */
+.language-selector {
+  position: relative;
+  margin-right: 1rem;
+  display: flex;
+  align-items: center;
+  height: 60px;
+}
+
+.language-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.6rem;
+  background: linear-gradient(to bottom, #f8f7ff 95%, #f3f0ff);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  border-radius: 0.8rem;
+  color: #8b5cf6;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-height: auto;
+  height: 38px;
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+
+.language-btn {
+  margin: 0;
+  vertical-align: middle;
+}
+
+.dark-theme .language-btn {
+  background: linear-gradient(to bottom, #1f1f1f 95%, #2d2d2d);
+  border-color: rgba(168, 85, 247, 0.3);
+  color: #a855f7;
+}
+
+header.scrolled .language-btn {
+  background: linear-gradient(to bottom, #1f1f1f 95%, #2d2d2d);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
+
+/* Forzar fondo oscuro y texto blanco cuando el header está scrolleado (mayor especificidad) */
+:root[data-theme="light"] header.scrolled .language-btn,
+header.scrolled .language-btn {
+  background: #0b0b0b !important;
+  border: 1px solid rgba(255,255,255,0.08) !important;
+  color: #ffffff !important;
+}
+
+/* Centrar el texto dentro del botón y ajustar padding para que quede perfectamente centrado */
+.language-btn {
+  padding-left: 0.6rem !important;
+  padding-right: 0.6rem !important;
+}
+
+.language-btn .current-lang {
+  min-width: 34px;
+  width: 34px;
+  text-align: center;
+  display: inline-block;
+}
+
+/* Dropdown oscuro al scrollear: enlaces en blanco */
+header.scrolled .language-dropdown {
+  background: linear-gradient(to bottom, #0f0f0f 95%, #1b1b1b) !important;
+  border-color: rgba(255,255,255,0.06) !important;
+}
+
+header.scrolled .language-dropdown a {
+  color: #ffffff !important;
+}
+
+header.scrolled .language-dropdown a.active {
+  background: rgba(255,255,255,0.06) !important;
+  color: #ffffff !important;
+}
+
+header.scrolled .language-btn:hover {
+  background: linear-gradient(to bottom, #2d2d2d 95%, #3a3a3a);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #e0d5ff;
+}
+
+.language-btn:hover {
+  background: linear-gradient(to bottom, #f3f0ff 95%, #ede9fe);
+  box-shadow: 0 2px 8px rgba(139, 92, 246, 0.2);
+}
+
+.current-lang {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.language-btn .current-lang {
+  display: inline-block;
+  min-width: 28px;
+  text-align: center;
+}
+
+/* Make language button position relative so we can center the label */
+.language-btn {
+  position: relative;
+  padding-left: 80px !important; /* más espacio para separar icono y texto */
+  padding-right: 0.9rem !important;
+  min-width: 90px !important;
+}
+
+.language-btn svg {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  fill: none !important;
+  stroke: currentColor !important;
+}
+
+.language-btn .current-lang {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+}
+
+/* Force dark background for button and dropdown when header is scrolled (high specificity) */
+header.scrolled .social-links .language-selector .language-btn,
+:root[data-theme="light"] header.scrolled .social-links .language-selector .language-btn {
+  background: #0b0b0b !important;
+  color: #fff !important;
+  border-color: rgba(255,255,255,0.06) !important;
+}
+
+header.scrolled .social-links .language-selector .language-dropdown,
+:root[data-theme="light"] header.scrolled .social-links .language-selector .language-dropdown {
+  background: linear-gradient(to bottom, #0f0f0f 95%, #1b1b1b) !important;
+  border-color: rgba(255,255,255,0.06) !important;
+}
+
+header.scrolled .social-links .language-selector .language-dropdown a {
+  color: #ffffff !important;
+}
+
+.language-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 0.5rem;
+  background: linear-gradient(to bottom, #f8f7ff 95%, #f3f0ff);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  border-radius: 1rem;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  min-width: 120px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+  z-index: 2000;
+}
+
+.language-dropdown.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  display: flex;
+}
+
+.dark-theme .language-dropdown {
+  background: linear-gradient(to bottom, #1f1f1f 95%, #2d2d2d);
+  border-color: rgba(168, 85, 247, 0.3);
+}
+
+header.scrolled .language-dropdown {
+  background: linear-gradient(to bottom, #1f1f1f 95%, #2d2d2d);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.language-dropdown a {
+  padding: 0.5rem 1rem;
+  color: #8b5cf6;
+  text-decoration: none;
+  font-size: 0.875rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.dark-theme .language-dropdown a {
+  color: #a855f7;
+}
+
+.language-dropdown a:hover {
+  background: rgba(139, 92, 246, 0.1);
+}
+
+.dark-theme .language-dropdown a:hover {
+  background: rgba(168, 85, 247, 0.1);
+}
+
+.language-dropdown a.active {
+  background: rgba(139, 92, 246, 0.15);
+  font-weight: 500;
+}
+
+.dark-theme .language-dropdown a.active {
+  background: rgba(168, 85, 247, 0.15);
+}
+
+/* Social links */
+.social-links {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  padding-right: 1rem;
+  height: 60px;
+  position: relative;
+  z-index: 1000;
+}
+
+.social-links a {
+  color: #8b5cf6;
+  transform: scale(1);
+  transition: all 0.3s ease;
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 !important;
+  border-radius: 50% !important;
+  background: transparent;
+  position: relative;
+  z-index: 1000;
+  pointer-events: auto !important;
+  height: 32px;
+  width: 32px;
+}
+
+.social-links a {
+  margin: 0;
+  vertical-align: middle;
+}
+
+.social-links a svg {
+  width: 24px;
+  height: 24px;
+  transition: all 0.3s ease;
+  pointer-events: none;
+  display: block !important;
+  fill: currentColor !important;
+}
+
+.social-links a:hover {
+  transform: scale(1.1);
+  opacity: 1;
+  color: #a855f7;
+}
+
+/* Social links después del scroll */
+header.scrolled .social-links {
+  transform: translateX(0);
+  opacity: 1;
+  pointer-events: auto !important;
+}
+
+/* Animación inicial al hacer scroll */
+header.scrolled .social-links a {
+  transform: scale(1);
+  animation: socialBounce 1.2s ease-in-out;
+  pointer-events: auto !important;
+}
+
+/* Hover después del scroll */
+header.scrolled .social-links a:hover {
+  transform: scale(1.1) !important;
+  color: #a855f7;
+  background: rgba(139, 92, 246, 0.1);
+}
+
+/* Asegurar interactividad */
+.social-links,
+.social-links a,
+header.scrolled .social-links,
+header.scrolled .social-links a {
+  pointer-events: auto !important;
+}
+
+/* Nueva animación específica para iconos sociales */
+@keyframes socialBounce {
+  0%, 100% { transform: scale(1); }
+  20% { transform: scale(1.1); }
+  30% { transform: scale(1); }
+  45% { transform: scale(1.05); }
+  55% { transform: scale(1); }
+  70% { transform: scale(1.1); }
+  80% { transform: scale(1); }
+}
+
+@keyframes bounceTwice {
+  0%, 100% { transform: translateY(0) scale(1); }
+  25% { transform: translateY(-4px) scale(1.05); }
+  50% { transform: translateY(0) scale(1); }
+  75% { transform: translateY(-2px) scale(1.02); }
+}
+
+/* Botón de tema */
+.theme-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.5rem;
+  background: rgba(139, 92, 246, 0.05);
+  border: 2px solid transparent;
+  cursor: pointer;
+  color: #8b5cf6;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+.theme-toggle:hover {
+  background: rgba(139, 92, 246, 0.1);
+  transform: scale(1.1);
+  border-color: rgba(139, 92, 246, 0.2);
+}
+
+.theme-toggle:active {
+  transform: scale(0.95);
+}
+
+.moon-icon, .sun-icon {
+  position: absolute;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.moon-icon {
+  transform: translateY(0) rotate(0);
+  opacity: 1;
+}
+
+.sun-icon {
+  transform: translateY(100%) rotate(-90deg);
+  opacity: 0;
+}
+
+.dark-theme .moon-icon {
+  transform: translateY(-100%) rotate(90deg);
+  opacity: 0;
+}
+
+.dark-theme .sun-icon {
+  transform: translateY(0) rotate(0);
+  opacity: 1;
+}
+
+/* Animación del resplandor al cambiar */
+.theme-toggle::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(139, 92, 246, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.5s ease-out, height 0.5s ease-out;
+}
+
+.theme-toggle:active::after {
+  width: 150%;
+  height: 150%;
+  opacity: 0;
+  transition: all 0.6s ease-out;
+}
+
+/* Tema oscuro */
+:root[data-theme="dark"] {
+  --header-bg: rgba(18, 18, 18, 0.85);
+  --nav-text: #a855f7;
+  --nav-bg: #1f1f1f;
+  --nav-border: rgba(168, 85, 247, 0.3);
+  --nav-hover-bg: #2d2d2d;
+  --nav-hover-border: rgba(168, 85, 247, 0.5);
+  --nav-shadow: rgba(0, 0, 0, 0.3);
+  --nav-hover-shadow: rgba(168, 85, 247, 0.2);
+}
+
+:root[data-theme="light"] {
+  --header-bg: rgba(255, 255, 255, 0.85);
+  --nav-text: #8b5cf6;
+  --nav-bg: #f8f7ff;
+  --nav-border: rgba(139, 92, 246, 0.3);
+  --nav-hover-bg: #f3f0ff;
+  --nav-hover-border: rgba(139, 92, 246, 0.5);
+  --nav-shadow: rgba(0, 0, 0, 0.1);
+  --nav-hover-shadow: rgba(139, 92, 246, 0.2);
+}
+
+[data-theme="dark"] .internal-links a {
+  color: var(--nav-text);
+}
+
+.dark-theme header.scrolled .internal-links a {
+  background: linear-gradient(to bottom, #1f1f1f 95%, #2d2d2d);
+  border-color: rgba(168, 85, 247, 0.3);
+  color: #a855f7;
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.dark-theme header.scrolled .internal-links a:hover {
+  background: linear-gradient(to bottom, #2d2d2d 95%, #3a3a3a);
+  border-color: rgba(168, 85, 247, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(168, 85, 247, 0.2);
+}
+
+.dark-theme header.scrolled .internal-links a[aria-current="page"] {
+  background: linear-gradient(to bottom, #3a3a3a 95%, #454545);
+  border-color: rgba(168, 85, 247, 0.6);
+  color: #d8b4fe;
+  box-shadow: 0 4px 12px rgba(168, 85, 247, 0.25);
+}
+
+.dark-theme .theme-toggle {
+  color: #a855f7;
+}
+
+.dark-theme .sun-and-moon {
+  transform: rotate(180deg);
+}
+
+.dark-theme .sun {
+  transform: scale(1.75);
+}
+
+.dark-theme .sun-beams {
+  opacity: 0;
+  transform: rotate(45deg);
+}
+
+.dark-theme .moon > circle {
+  transform: translateX(-7px);
+}
+
+/* Responsive */
+@media (max-width: 720px) {
+  .social-links { display: none; }
+  .theme-toggle {
+    top: 0.5rem;
+    right: 0.5rem;
+  }
+}
+
+/* ---------- OVERRIDE: ensure language selector stays centered and dark on scroll ---------- */
+/* Highly specific rules placed at end to avoid being overridden */
+header.scrolled nav .social-links .language-selector .language-btn,
+header.scrolled .language-selector .language-btn,
+nav .social-links .language-selector .language-btn {
+  background: #000000 !important;
+  color: #ffffff !important;
+  border-color: rgba(255,255,255,0.06) !important;
+}
+
+header.scrolled nav .social-links .language-selector .language-btn svg,
+nav .social-links .language-selector .language-btn svg {
+  color: #ffffff !important;
+  fill: currentColor !important;
+}
+
+header.scrolled nav .social-links .language-selector .language-dropdown,
+nav .social-links .language-selector .language-dropdown {
+  background: #0b0b0b !important;
+  color: #ffffff !important;
+  border-color: rgba(255,255,255,0.06) !important;
+}
+
+header.scrolled nav .social-links .language-selector .language-dropdown a,
+nav .social-links .language-selector .language-dropdown a {
+  color: #ffffff !important;
+}
+
+/* Ensure the language label stays centered even if other styles change */
+nav .social-links .language-selector .language-btn { position: relative !important; }
+nav .social-links .language-selector .language-btn .current-lang { position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; letter-spacing: 2px !important; font-weight: 700 !important; font-size: 0.98rem !important; color: var(--accent) !important; }
+
+/* When a language is selected, style the pill purple (unless header.scrolled overrides it) */
+.language-selector[data-lang] .language-btn {
+  background: var(--accent) !important;
+  color: #ffffff !important;
+  border-color: var(--accent) !important;
+}
+
+.language-selector[data-lang] .language-btn .current-lang {
+  color: #ffffff !important;
+}
+
+/* Small touch: increase z-index so dropdown shows above other overlays */
+nav .social-links .language-selector .language-dropdown { z-index: 4000 !important; }
+
+/* Center dropdown items and make their text visually balanced */
+.language-dropdown {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  min-width: 150px !important;
+  padding: 0.4rem !important;
+}
+
+.language-dropdown a {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  text-align: center !important;
+  padding: 0.6rem 0.75rem !important;
+  border-radius: 10px !important;
+  font-size: 0.95rem !important;
+  font-weight: 600 !important;
+  color: inherit !important;
+  letter-spacing: 0.6px !important;
+}
+
+.language-dropdown a + a {
+  margin-top: 0.35rem !important;
+}
+
+/* Ensure active link has slight background and remains centered */
+.language-dropdown a.active {
+  background: rgba(255,255,255,0.04) !important;
+}
+
+/* End override block */

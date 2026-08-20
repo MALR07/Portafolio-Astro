@@ -1,0 +1,945 @@
+/* Estilos generales adaptativos */
+
+.container {
+  width: 100%; /* ocupa todo el ancho disponible */
+  max-width: 1600px; /* sigue teniendo un límite en pantallas grandes */
+  margin: 0 auto; /* centrado horizontal */
+  
+  /* padding responsivo */
+  padding-left: clamp(1rem, 5vw, 4rem);
+  padding-right: clamp(1rem, 5vw, 4rem);
+  padding-top: clamp(1rem, 2vw, 2rem);
+  padding-bottom: clamp(1rem, 2vw, 2rem);
+  
+  box-sizing: border-box; /* para que padding no rompa el ancho */
+}
+
+/* Estilos base para todo el sitio */
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  width: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
+}
+
+#app {
+  background-color: var(--background);
+  min-height: 100vh;
+  transition: background-color 0.3s ease;
+}
+
+main {
+  background-color: var(--background);
+  min-height: 100vh;
+  padding-top: 60px; /* Altura del header */
+  transition: background-color 0.3s ease;
+}
+
+/* Tipografía */
+:root {
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --font-size-4xl: 2.25rem;
+  --line-height-tight: 1.25;
+  --line-height-relaxed: 1.625;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+}
+
+/* Variables para temas */
+:root {
+  --background: #ffffff;
+  --background-secondary: #ffffff;
+  --background-accent: #f8f7ff;
+  --text: #2c3e50;
+  --text-secondary: #666666;
+  --accent: #8B5CF6;
+  --accent-hover: #7C3AED;
+  --card-bg: #ffffff;
+  --card-border: rgba(139, 92, 246, 0.2);
+  --timeline-color: #8B5CF6;
+  --shadow-color: rgba(139, 92, 246, 0.15);
+  --card-shadow: rgba(0, 0, 0, 0.1);
+  --pattern-opacity: 0.05;
+  --section-bg: #ffffff;
+  --header-bg: rgba(255, 255, 255, 0.8);
+  --footer-bg: #ffffff;
+  --transition-speed: 0.3s;
+}
+
+/* Tema Oscuro */
+[data-theme="dark"] {
+  --background: #121212;
+  --background-secondary: #121212
+  --background-accent: #1E1E1E;
+  --text: #ffffff;
+  --text-secondary: #b3b3b3;
+  --accent: #9F7AEA;
+  --accent-hover: #B794F4;
+  --card-bg: #1E1E1E;
+  --card-border: rgba(159, 122, 234, 0.3);
+  --timeline-color: #9F7AEA;
+  --shadow-color: rgba(159, 122, 234, 0.2);
+  --card-shadow: rgba(0, 0, 0, 0.3);
+  --pattern-opacity: 0.08;
+  --section-bg: #121212;
+  --header-bg: rgba(18, 18, 18, 0.8);
+  --footer-bg: #1a1a1a;
+}
+
+/* Transiciones globales */
+*, *::before, *::after {
+  transition: background-color var(--transition-speed) ease,
+              color var(--transition-speed) ease,
+              border-color var(--transition-speed) ease,
+              box-shadow var(--transition-speed) ease;
+}
+
+/* Scroll suave */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Animación de scroll para las secciones */
+section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease-out;
+}
+
+section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* Iconos de sección en morado */
+.section-icon {
+  width: 2rem;
+  height: 2rem;
+  margin-right: 0.5rem;
+  vertical-align: middle;
+  color: #8B5CF6; /* morado principal */
+  fill: #8B5CF6;  /* para SVG que use fill */
+  stroke: #8B5CF6; /* para SVG que use stroke */
+  transition: color 0.3s ease, fill 0.3s ease, stroke 0.3s ease;
+}
+
+/* Hero section */
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 3rem 0;
+  position: relative;
+  overflow: hidden;
+  min-height: calc(100vh - 80px);
+  justify-content: center;
+  background-color: var(--background);
+}
+
+/* Imagen de fondo recortada */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 90%; /* Recorta la altura */
+  background: url('/fondo.jpeg') center/cover no-repeat;
+  opacity: 0.3;
+  z-index: 0;
+}
+
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 5%; /* justo al final de la imagen recortada */
+  left: 50%;   /* para centrar */
+  transform: translateX(-50%); /* centrado exacto */
+  width: 800px; /* longitud de la línea */
+  height: 2px;  /* grosor */
+  background: linear-gradient(
+    90deg,
+    rgba(168, 85, 247, 1) 0%,   /* morado neon */
+    rgba(236, 72, 153, 1) 100%  /* fucsia neon */
+  );
+  box-shadow: 0 0 6px rgba(168, 85, 247, 0.5),
+              0 0 10px rgba(236, 72, 153, 0.4); /* brillo sutil */
+  z-index: 1;
+  border-radius: 1px; /* opcional, bordes redondeados */
+}
+
+
+.profile-img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--accent);
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-title {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--text);
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+  letter-spacing: -0.025em;
+  line-height: var(--line-height-tight);
+}
+
+.hero-subtitle {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem; /* menos margen para acercar los botones */
+  position: relative;
+  z-index: 1;
+  line-height: var(--line-height-relaxed);
+}
+
+/* Botones */
+.buttons-container {
+  display: flex;
+  gap: 0.8rem; /* menos separación entre botones */
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.button {
+  display: inline-flex;       /* convierte el botón en contenedor flex */
+  align-items: center;        /* centra verticalmente texto e icono */
+  gap: 0.5rem;                /* espacio entre icono y texto */
+  padding: 0.55rem 1.2rem;    /* tamaño del botón */
+  border-radius: 25px;        /* redondeado */
+  background: var(--accent);
+  color: var(--background);
+  text-decoration: none;
+  font-weight: 200;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+
+.button:hover {
+ 
+  background: var(--accent-hover);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px var(--shadow-color);
+  color: var(--background); 
+}
+
+
+/* Experiencia*/
+
+/* Sección experiencia */
+.experience-section {
+  padding: 6rem 1rem; /* más separación arriba y abajo */
+  background: var(--background-secondary);
+  text-align: center;
+}
+
+
+/* Lista de experiencias */
+.experience-list {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem; /* más separación entre experiencias */
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Cada experiencia */
+.experience-card {
+  text-align: center;
+  padding: 3rem 2rem;
+  transition: all 0.3s ease;
+  background: var(--card-bg);
+  border-radius: 16px;
+  border: 1px solid var(--card-border);
+  box-shadow: 0 6px 25px var(--card-shadow);
+}
+
+.experience-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 35px var(--shadow-color);
+  border-color: var(--accent);
+}
+
+/* Empresa */
+.experience-company {
+  font-weight: var(--font-weight-bold);
+  font-size: 2rem;
+  color: var(--accent);
+  margin-bottom: 3rem; /* separación de la fila de puesto y descripción */
+}
+
+/* Contenedor de fila: izquierda y derecha */
+.experience-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 3rem; /* separación horizontal entre puesto y descripción */
+  text-align: left;
+}
+
+/* Puesto y fecha a la izquierda */
+.experience-left {
+  flex: 1 1 250px;
+}
+
+.experience-position {
+  font-size: 1.3rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.experience-period {
+  display: block;
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin-bottom: 2rem; /* separación mayor con la descripción */
+}
+
+/* Descripción a la derecha */
+.experience-right {
+  flex: 2 1 500px;
+}
+
+.experience-right p {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin: 0;
+}
+
+
+/* Proyectos */
+
+.projects {
+  padding: 6rem 0;
+  background: var(--background-secondary);
+  position: relative;
+  overflow: visible;
+}
+
+.projects::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.05;
+  z-index: 0;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 4rem;
+  color: var(--text);
+  position: relative;
+  z-index: 1;
+}
+
+.projects-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 8rem;
+  padding: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Proyecto individual tipo "ventana" */
+.project-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  background: var(--card-bg);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 25px var(--card-shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid var(--card-border);
+  backdrop-filter: blur(5px);
+  padding: 2rem;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 35px var(--shadow-color);
+  border-color: var(--accent);
+}
+
+/* Alternamos dirección para zig-zag */
+.project-left { flex-direction: row; }
+.project-right { flex-direction: row-reverse; }
+
+/* Imagen tipo ventana */
+.project-image-wrapper {
+  flex: 1 1 45%;
+  perspective: 1000px;
+}
+
+.project-image {
+  width: 100%;
+  height: auto;
+  max-height: 300px;
+  object-fit: contain; /* muestra la imagen completa */
+  border-radius: 10px;
+  transform: rotate(0deg); /* sin rotación */
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.project-card:hover .project-image {
+  transform: scale(1.05); /* solo aumenta tamaño al hover */
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* Contenido del proyecto */
+.project-content {
+  flex: 1 1 50%;
+  padding: 1.5rem;
+  transform: translateY(20px);
+  text-align: center;
+}
+
+.project-left .project-content {
+  text-align: center;
+}
+
+.project-right .project-content {
+  text-align: center;
+}
+
+/* Título centrado sobre la ventana */
+.project-content h3 {
+  font-size: 2rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--text);
+  text-align: center;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.025em;
+  line-height: var(--line-height-tight);
+}
+
+/* Descripción adaptada al zig-zag */
+.project-content p {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  line-height: var(--line-height-relaxed);
+}
+
+/* Tecnologías */
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.project-tech span {
+  background: #8B5CF6; /* morado */
+  color: #ffffff; /* blanco */
+  padding: 0.4rem 0.9rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+/* Pills con icono */
+.tech-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  background: #8B5CF6;
+  color: #ffffff;
+  padding: 0.35rem 0.9rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+/* Ajustes para iconos de Devicon dentro de las pills */
+.tech-pill i[class^="devicon-"] {
+  font-size: 20px;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Reducir separación adicional entre icono SVG y etiqueta */
+.tech-pill .tech-label {
+  margin-left: 0;
+}
+
+.inline-tech-svg {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+}
+
+.tech-svg svg {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.tech-label {
+  line-height: 1;
+}
+
+/* Permitir cambiar color del icono usando color (fill: currentColor) */
+.tech-pill { color: #fff; }
+.tech-pill:hover { color: #fff; }
+
+/* Botones dentro de la caja y mejorados */
+.project-links {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.project-right .project-links {
+  justify-content: center;
+}
+
+.project-links .button {
+  text-align: center;
+  font-size: 0.85rem;
+  background: #8B5CF6; /* morado */
+  border: 2px solid #8B5CF6; /* igual que la tarjeta */
+  color: #ffffff; /* texto blanco */
+  padding: 0.5rem 1.2rem;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.project-links .button:hover {
+  background: #fff;
+  color: #8B5CF6;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(139,92,246,0.5);
+}
+
+/* Responsive: en móvil todo en columna */
+@media (max-width: 768px) {
+  .project-card {
+    flex-direction: column !important;
+  }
+
+  .project-image-wrapper,
+  .project-content {
+    transform: translate(0,0);
+  }
+
+  .project-left .project-content,
+  .project-right .project-content {
+    text-align: left;
+  }
+
+  .project-links {
+    justify-content: flex-start !important;
+  }
+}
+
+
+
+
+/* Sobre mí */
+.about {
+  display: flex;
+  align-items: center; /* centra verticalmente el texto respecto a la imagen */
+  justify-content: center;
+  gap: 2rem; /* espacio entre imagen y texto */
+  padding: 6rem 2rem; /* espacio arriba y abajo */
+  background: var(--background);
+  position: relative;
+  overflow: visible;
+  transition: all 0.3s ease;
+}
+
+.about-img {
+  width: 300px;
+  height: 300px;
+  border-radius: 12px;
+  object-fit: cover;
+  border: 3px solid var(--accent);
+  box-shadow: 0 8px 30px var(--shadow-color);
+  position: relative;
+  z-index: 2;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-img:hover {
+  transform: translateY(0) scale(1.02);
+  box-shadow: 0 12px 40px var(--shadow-color);
+}
+
+.about-content {
+  flex: 1;
+  max-width: 600px; /* texto más estrecho */
+  text-align: left;
+  position: relative;
+  z-index: 2;
+  padding-bottom: 2rem; /* espacio para la barra debajo */
+}
+
+/* Barra de neón debajo del texto */
+.about::after {
+  content: '';
+  position: absolute;
+  bottom: 2rem; /* justo al final de la sección */
+  left: 50%;     /* para centrar */
+  transform: translateX(-50%); /* centrado exacto */
+  width: 800px;  /* longitud de la línea */
+  height: 2px;   /* grosor */
+  background: linear-gradient(
+    90deg,
+    rgba(168, 85, 247, 1) 0%,   /* morado neon */
+    rgba(236, 72, 153, 1) 100%  /* fucsia neon */
+  );
+  box-shadow: 0 0 6px rgba(168, 85, 247, 0.5),
+              0 0 10px rgba(236, 72, 153, 0.4); /* brillo sutil */
+  z-index: 1;
+  border-radius: 1px; /* opcional, bordes redondeados */
+}
+
+
+/* Título */
+.about-content h2 {
+  color: var(--text);
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: 1rem;
+  display: inline-block;
+  letter-spacing: -0.025em;
+  line-height: var(--line-height-tight);
+}
+
+/* Estilos específicos para el nombre, rol y pueblo */
+.about-name {
+  color: var(--accent);
+  font-weight: var(--font-weight-bold);
+}
+
+.about-role {
+  color: var(--accent-hover);
+  font-weight: var(--font-weight-semibold);
+}
+
+.about-town {
+  color: #00D1FF; /* azul-cian para el pueblo */
+  font-weight: var(--font-weight-semibold);
+}
+
+/* Icono pequeño en Sobre Mí: asegurar morado */
+.about .section-icon svg,
+.about .section-icon svg path {
+  fill: var(--accent) !important;
+  color: var(--accent) !important;
+}
+
+/* Frases resaltadas en About */
+.about-phrase {
+  color: var(--accent);
+  font-weight: var(--font-weight-semibold);
+}
+
+.about-residence {
+  color: var(--accent);
+  font-weight: var(--font-weight-semibold);
+}
+
+/* Párrafos */
+.about-content p {
+  color: var(--text-secondary);
+  line-height: var(--line-height-relaxed);
+  margin-bottom: 1rem;
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-normal);
+}
+
+/* Palabras destacadas de color aleatorio */
+.about-content p span.random-color {
+  font-weight: var(--font-weight-semibold);
+  color: inherit; /* legacy: kept for backward compatibility */
+}
+
+/* Accent classes para 'Sobre Mí' */
+.accent-blue {
+  color: #0052cc;
+  background: linear-gradient(90deg, rgba(0,102,255,0.08), transparent);
+  padding: 0.08rem 0.35rem;
+  border-radius: 6px;
+  font-weight: var(--font-weight-semibold);
+}
+.accent-red {
+  color: #b91c1c;
+  background: linear-gradient(90deg, rgba(229,57,53,0.06), transparent);
+  padding: 0.08rem 0.35rem;
+  border-radius: 6px;
+  font-weight: var(--font-weight-semibold);
+}
+.accent-gold {
+  color: #a16207;
+  background: linear-gradient(90deg, rgba(255,215,0,0.06), transparent);
+  padding: 0.08rem 0.35rem;
+  border-radius: 6px;
+  font-weight: var(--font-weight-semibold);
+}
+.accent-cyan {
+  color: #0e7490;
+  background: linear-gradient(90deg, rgba(0,209,255,0.06), transparent);
+  padding: 0.08rem 0.35rem;
+  border-radius: 6px;
+  font-weight: var(--font-weight-semibold);
+}
+.accent-orange {
+  color: #c2410c;
+  background: linear-gradient(90deg, rgba(255,179,71,0.06), transparent);
+  padding: 0.08rem 0.35rem;
+  border-radius: 6px;
+  font-weight: var(--font-weight-semibold);
+}
+
+/* Asegurar buena visibilidad en tema oscuro */
+[data-theme="dark"] .accent-blue { color: #60a5fa; background: linear-gradient(90deg, rgba(0,102,255,0.12), transparent); }
+[data-theme="dark"] .accent-red { color: #f87171; background: linear-gradient(90deg, rgba(229,57,53,0.12), transparent); }
+[data-theme="dark"] .accent-gold { color: #facc15; background: linear-gradient(90deg, rgba(255,215,0,0.12), transparent); }
+[data-theme="dark"] .accent-cyan { color: #22d3ee; background: linear-gradient(90deg, rgba(0,209,255,0.12), transparent); }
+[data-theme="dark"] .accent-orange { color: #fb923c; background: linear-gradient(90deg, rgba(255,179,71,0.12), transparent); }
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .about {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 6rem 1rem;
+  }
+
+  .about-img {
+    width: 250px;
+    height: 250px;
+    margin: 0 auto;
+  }
+
+  .about-content {
+    max-width: 90%;
+    text-align: center;
+    padding-bottom: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-img {
+    width: 200px;
+    height: 200px;
+  }
+
+  .about-content h2 {
+    font-size: var(--font-size-3xl);
+  }
+
+  .about-content p {
+    font-size: var(--font-size-base);
+  }
+}
+
+/* Color classes para traducciones con HTML */
+/* Tema claro */
+.text-purple-400 {
+  color: #7c3aed;
+  font-weight: 600;
+}
+
+.text-indigo-400 {
+  color: #4338ca;
+  font-weight: 600;
+}
+
+.text-cyan-400 {
+  color: #0e7490;
+  font-weight: 600;
+}
+
+.text-red-400 {
+  color: #b91c1c;
+  font-weight: 600;
+}
+.text-green-400 {
+  color: #15803d;
+  font-weight: 600;
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+/* Tema oscuro - ajustes para mejor contraste */
+[data-theme="dark"] .text-purple-400 {
+  color: #c084fc;
+}
+
+[data-theme="dark"] .text-indigo-400 {
+  color: #a5b4fc;
+}
+
+[data-theme="dark"] .text-cyan-400 {
+  color: #22d3ee;
+}
+
+[data-theme="dark"] .text-green-400 {
+  color: #4ade80;
+}
+
+/* ===== ANIMACIONES ===== */
+
+/* Keyframes para fade-in */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Keyframes para slide-in desde arriba */
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Keyframes para slide-in desde abajo */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Keyframes para bounce sutil */
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Keyframes para glow mejorado */
+@keyframes glowPulse {
+  0% {
+    box-shadow: 0 6px 25px var(--card-shadow);
+  }
+  50% {
+    box-shadow: 0 12px 40px var(--shadow-color);
+  }
+  100% {
+    box-shadow: 0 12px 40px var(--shadow-color);
+  }
+}
+
+/* Keyframes para scale smooth */
+@keyframes scaleUp {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.02);
+  }
+}
+
+/* Animación para cards de proyectos */
+.project-card {
+  animation: slideInUp 0.6s ease-out;
+}
+
+/* Animación para tech pills */
+.tech-pill {
+  animation: bounceIn 0.5s ease-out;
+}
+
+/* Animación alternada para tech pills */
+.tech-pill:nth-child(1) { animation-delay: 0.1s; }
+.tech-pill:nth-child(2) { animation-delay: 0.2s; }
+.tech-pill:nth-child(3) { animation-delay: 0.3s; }
+.tech-pill:nth-child(4) { animation-delay: 0.4s; }
+.tech-pill:nth-child(5) { animation-delay: 0.5s; }
+
+/* Animación para botones */
+.button {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Animación para experiencia cards */
+.experience-card {
+  animation: slideInUp 0.6s ease-out;
+}
+
+/* Animación para about section */
+.about-img {
+  animation: slideInDown 0.6s ease-out;
+}
+
+.about-content {
+  animation: slideInUp 0.6s ease-out 0.2s both;
+}
+
+/* Animación para section titles */
+.section-title {
+  animation: fadeIn 0.6s ease-out;
+}
+
+/* Efecto glow en hover para cards */
+.project-card:hover {
+  box-shadow: 0 12px 40px var(--shadow-color);
+}
+
+.experience-card:hover {
+  box-shadow: 0 12px 40px var(--shadow-color);
+}

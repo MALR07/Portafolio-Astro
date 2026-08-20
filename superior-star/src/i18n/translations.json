@@ -1,0 +1,34 @@
+{
+  "es": {
+    "nav": {
+      "portfolio": "Portafolio",
+      "projects": "Proyectos",
+      "cv": "CV"
+    },
+    "buttons": {
+      "downloadCV": "Descargar Currículum",
+      "changeTheme": "Cambiar tema",
+      "changeLanguage": "Cambiar idioma"
+    },
+    "social": {
+      "linkedin": "Mi LinkedIn",
+      "github": "Mi GitHub personal"
+    }
+  },
+  "en": {
+    "nav": {
+      "portfolio": "Portfolio",
+      "projects": "Projects",
+      "cv": "CV"
+    },
+    "buttons": {
+      "downloadCV": "Download CV",
+      "changeTheme": "Change theme",
+      "changeLanguage": "Change language"
+    },
+    "social": {
+      "linkedin": "My LinkedIn",
+      "github": "My Personal GitHub"
+    }
+  }
+}

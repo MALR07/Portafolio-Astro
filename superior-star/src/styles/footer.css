@@ -1,0 +1,77 @@
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem; /* más separación entre los enlaces */
+  flex-wrap: wrap;
+}
+
+/* Estilo específico para el enlace del nombre */
+.footer-link-name {
+  color: #8B5CF6;           /* morado principal */
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.footer-link-name:hover {
+  color: #B794F4;            /* morado más claro */
+  text-decoration: underline;
+  transform: translateY(-2px);
+}
+
+
+.footer-link:hover {
+  transform: translateY(-2px);
+}
+
+
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    gap: 4rem;
+  }
+  
+  .footer-divider {
+    width: 100%;
+    height: 1px;
+    margin: 0.8rem 0;
+  }
+}
+
+.footer-link {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  color: #8B5CF6;
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.footer-link:hover {
+  transform: translateY(-2px);
+}
+
+.footer-copyright {
+  color: #4b5563;
+  font-size: 0.875rem;
+  flex-shrink: 0;
+  max-width: 600px;
+}
+
+:root.dark-theme .footer-link,
+:root.dark-theme .footer-copyright {
+  color: #9ca3af;
+}
+
+:root.dark-theme .footer-link:hover {
+  background-color: rgba(156, 163, 175, 0.1);
+}
+
+:root.dark-theme .footer-divider {
+  background-color: rgba(156, 163, 175, 0.2);
+}
