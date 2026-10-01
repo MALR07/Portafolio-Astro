@@ -109,6 +109,21 @@ main {
               box-shadow var(--transition-speed) ease;
 }
 
+/* Desactivar animaciones pesadas en mobile */
+@media (max-width: 768px) {
+  *, *::before, *::after {
+    transition: none !important;
+  }
+  
+  section {
+    transition: none !important;
+  }
+  
+  .project-card {
+    transition: none !important;
+  }
+}
+
 /* Scroll suave */
 html {
   scroll-behavior: smooth;
@@ -461,6 +476,7 @@ section.visible {
   flex-wrap: wrap;
   gap: 0.5rem;
   margin-bottom: 1.5rem;
+  justify-content: center;
 }
 
 .project-tech span {
@@ -552,20 +568,81 @@ section.visible {
 @media (max-width: 768px) {
   .project-card {
     flex-direction: column !important;
+    gap: 1.5rem;
+    padding: 1.5rem;
   }
 
-  .project-image-wrapper,
+  .project-image-wrapper {
+    flex: 1 1 100%;
+    transform: translate(0, 0);
+    max-height: 250px;
+  }
+
+  .project-image {
+    max-height: 250px;
+  }
+
   .project-content {
-    transform: translate(0,0);
+    flex: 1 1 100%;
+    transform: translate(0, 0);
+    text-align: center;
+    padding: 1rem;
   }
 
   .project-left .project-content,
   .project-right .project-content {
-    text-align: left;
+    text-align: center;
+  }
+
+  .project-tech {
+    justify-content: center;
   }
 
   .project-links {
-    justify-content: flex-start !important;
+    justify-content: center !important;
+    flex-wrap: wrap;
+  }
+
+  .project-content h3 {
+    font-size: 1.5rem;
+  }
+
+  .project-content p {
+    font-size: 1rem;
+  }
+}
+
+/* Extra pequeño - smartphones */
+@media (max-width: 480px) {
+  .project-card {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .project-image-wrapper {
+    max-height: 200px;
+  }
+
+  .project-image {
+    max-height: 200px;
+  }
+
+  .project-content h3 {
+    font-size: 1.25rem;
+  }
+
+  .project-tech {
+    gap: 0.4rem;
+  }
+
+  .tech-pill {
+    padding: 0.3rem 0.7rem;
+    font-size: 0.8rem;
+  }
+
+  .project-links .button {
+    padding: 0.4rem 1rem;
+    font-size: 0.75rem;
   }
 }
 
