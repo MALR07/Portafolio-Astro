@@ -4,7 +4,6 @@
 Este es mi **primer portafolio**, construido con [Astro](https://astro.build/) y Docker, donde muestro mis proyectos, habilidades y contacto.
 
 <img width="2481" height="1301" alt="image" src="https://github.com/user-attachments/assets/d006b079-4e80-46f3-b1f9-734d19bddd4b" />
-[![Ver vídeo del proyecto](https://github.com/user-attachments/assets/d006b079-4e80-46f3-b1f9-734d19bddd4b)](https://youtu.be/56mYVI01KUc)
 
 ---
 
