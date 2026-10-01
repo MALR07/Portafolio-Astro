@@ -132,8 +132,16 @@ const translations = {
         "viewCode": "Code",
         "viewVideo": "Video",
         "viewPower": "Presentation"
+      },
+      "eva": {
+        "title": "Evangelion of gamers",
+        "description": "Evangelion of Gamers is a full-stack web application designed by and for video game enthusiasts. It allows you to keep detailed track of your personal game collection, explore the global catalog, and check achievements through its integration with the RAWG API.",
+        "viewCode": "Code",
+        "viewPage": "View Page"
+  
       }
     },
+    
     "about": {
       "title": "About Me",
       "opportunities": "Hi, I'm <span class=\"text-green-400 font-semibold\">Miguel Ángel Ledesma</span>, a <span class=\"text-indigo-400 font-semibold\">junior Web Developer</span> graduated in <span class=\"text-indigo-400 font-semibold\">Web Application Development (DAW)</span>. Currently, I'm <span class=\"text-indigo-400 font-semibold\">developing applications and automations</span> to continue learning and improving my <span class=\"text-indigo-400 font-semibold\">web development and RPA skills</span>.",
