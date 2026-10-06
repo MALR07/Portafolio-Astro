@@ -727,3 +727,42 @@ nav .social-links .language-selector .language-dropdown { z-index: 4000 !importa
 }
 
 /* End override block */
+
+/* ===== HEADER RESPONSIVE ===== */
+@media (max-width: 720px) {
+  header .header-bg { height: 56px; }
+  nav {
+    box-sizing: border-box;
+    padding: 0.4rem 3.5rem 0.4rem 0.5rem;
+    justify-content: flex-start;
+  }
+  .internal-links,
+  header.scrolled .internal-links {
+    box-sizing: border-box;
+    flex: 1 1 auto;
+    min-width: 0;
+    width: auto;
+    padding-left: 0;
+    transform: none;
+    justify-content: flex-start;
+    gap: 0.15rem;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    scrollbar-width: none;
+  }
+  .internal-links::-webkit-scrollbar { display: none; }
+  .internal-links a,
+  header.scrolled .internal-links a {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.35rem;
+    min-height: 2rem;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .theme-toggle {
+    top: 0.45rem;
+    right: 0.6rem;
+    width: 40px;
+    height: 40px;
+  }
+}

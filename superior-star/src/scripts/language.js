@@ -57,6 +57,18 @@ const translations = {
         "viewCode": "Código",
         "viewVideo": "Video",
         "viewPower": "Presentación"
+      },
+      "eva": {
+        "title": "Evangelion of Gamers",
+        "description": "Evangelion of Gamers es una aplicación web <span class=\"text-purple-400 font-semibold\">full-stack</span> pensada por y para amantes de los videojuegos. Permite llevar un control detallado de tu <span class=\"text-purple-400 font-semibold\">colección personal de juegos</span>, explorar el <span class=\"text-purple-400 font-semibold\">catálogo global</span> y consultar logros mediante la integración con <span class=\"text-purple-400 font-semibold\">RAWG API</span>.",
+        "viewCode": "Código",
+        "viewPage": "Ver página"
+      },
+      "viajero": {
+        "title": "Archivos del Viajero",
+        "description": "Archivos del Viajero es una aplicación web <span class=\"text-purple-400 font-semibold\">full-stack</span> para entusiastas de los viajes. Permite <span class=\"text-purple-400 font-semibold\">registrar aventuras</span>, explorar destinos y <span class=\"text-purple-400 font-semibold\">compartir experiencias</span> con otros viajeros.",
+        "viewCode": "Código",
+        "viewPage": "Ver página"
       }
     },
     "about": {
@@ -135,10 +147,15 @@ const translations = {
       },
       "eva": {
         "title": "Evangelion of gamers",
-        "description": "Evangelion of Gamers is a full-stack web application designed by and for video game enthusiasts. It allows you to keep detailed track of your personal game collection, explore the global catalog, and check achievements through its integration with the RAWG API.",
+        "description": "Evangelion of Gamers is a <span class=\"text-indigo-400 font-semibold\">full-stack</span> web application designed by and for video game enthusiasts. It lets you keep track of your <span class=\"text-indigo-400 font-semibold\">personal game collection</span>, explore the <span class=\"text-indigo-400 font-semibold\">global catalog</span>, and check achievements through its integration with the <span class=\"text-indigo-400 font-semibold\">RAWG API</span>.",
         "viewCode": "Code",
         "viewPage": "View Page"
-  
+      },
+      "viajero": {
+        "title": "Traveler's Archive",
+        "description": "Traveler's Archive is a <span class=\"text-indigo-400 font-semibold\">full-stack</span> web application for travel enthusiasts. It lets you <span class=\"text-indigo-400 font-semibold\">record your adventures</span>, explore destinations, and <span class=\"text-indigo-400 font-semibold\">share experiences</span> with other travelers.",
+        "viewCode": "Code",
+        "viewPage": "View Page"
       }
     },
     

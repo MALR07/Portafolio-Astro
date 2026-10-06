@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" role="img" aria-labelledby="title description">
+  <title id="title">Archivos del Viajero</title>
+  <desc id="description">Ilustracion de una ruta de viaje entre montanas y lugares guardados en un mapa.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#21153f"/>
+      <stop offset="1" stop-color="#6541a5"/>
+    </linearGradient>
+    <linearGradient id="road" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#f0abfc"/>
+      <stop offset="1" stop-color="#a78bfa"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="600" rx="28" fill="url(#sky)"/>
+  <circle cx="760" cy="132" r="64" fill="#f5d0fe" opacity=".82"/>
+  <path d="M0 382 184 183l166 199 151-166 199 208 125-141 135 123v194H0Z" fill="#392460"/>
+  <path d="m0 438 209-158 143 146 170-119 189 166 112-115 137 108v134H0Z" fill="#2b1d49" opacity=".88"/>
+  <path d="M118 472c125-96 215 43 331-48s162-160 278-99 83 116 157 90" fill="none" stroke="url(#road)" stroke-width="10" stroke-linecap="round" stroke-dasharray="2 23"/>
+  <g fill="#fff" stroke="#8b5cf6" stroke-width="8">
+    <circle cx="118" cy="472" r="18"/>
+    <circle cx="449" cy="424" r="18"/>
+    <circle cx="727" cy="325" r="18"/>
+    <circle cx="884" cy="415" r="18"/>
+  </g>
+  <g transform="translate(432 77)">
+    <path d="M48 0C21.5 0 0 21.5 0 48c0 36 48 91 48 91s48-55 48-91C96 21.5 74.5 0 48 0Z" fill="#c084fc"/>
+    <circle cx="48" cy="48" r="17" fill="#2b1d49"/>
+  </g>
+  <rect x="54" y="48" width="320" height="76" rx="20" fill="#171126" opacity=".75"/>
+  <text x="82" y="96" fill="#fff" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="700">Archivos del Viajero</text>
+</svg>

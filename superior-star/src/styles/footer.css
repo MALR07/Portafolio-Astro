@@ -75,3 +75,20 @@
 :root.dark-theme .footer-divider {
   background-color: rgba(156, 163, 175, 0.2);
 }
+
+@media (max-width: 768px) {
+  .footer-container { padding: 1.5rem 1rem; }
+  .footer-content {
+    flex-direction: column;
+    gap: 0.75rem;
+    text-align: center;
+  }
+  .footer-content > div[style] { display: none; }
+  .footer-copyright { max-width: 100%; line-height: 1.6; }
+  .footer-link {
+    display: inline-block;
+    padding: 0.6rem 1.25rem;
+    border: 1px solid #8B5CF6;
+    border-radius: 999px;
+  }
+}

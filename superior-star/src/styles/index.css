@@ -109,19 +109,12 @@ main {
               box-shadow var(--transition-speed) ease;
 }
 
-/* Desactivar animaciones pesadas en mobile */
-@media (max-width: 768px) {
+@media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
-    transition: none !important;
+    animation: none !important;
+    transition-duration: 0.01ms !important;
   }
-  
-  section {
-    transition: none !important;
-  }
-  
-  .project-card {
-    transition: none !important;
-  }
+  section { opacity: 1; transform: none; }
 }
 
 /* Scroll suave */
@@ -1019,4 +1012,63 @@ section.visible {
 
 .experience-card:hover {
   box-shadow: 0 12px 40px var(--shadow-color);
+}
+
+/* ===== RESPONSIVE MÓVIL / TABLET ===== */
+html { overflow-x: hidden; -webkit-text-size-adjust: 100%; }
+img { max-width: 100%; }
+
+.hero::after,
+.about::after {
+  width: min(800px, 80%);
+}
+
+@media (max-width: 1024px) {
+  .projects-grid { gap: 5rem; padding: 1rem; }
+  .project-image-wrapper { flex: 1 1 40%; }
+}
+
+@media (max-width: 768px) {
+  main { padding-top: 70px; }
+
+  .hero {
+    min-height: auto;
+    padding: 5rem 1.25rem 4rem;
+  }
+  .profile-img { width: 150px; height: 150px; margin-bottom: 1.25rem; }
+  .hero-title { font-size: 1.75rem; }
+  .hero-subtitle { font-size: 1rem; }
+  .buttons-container {
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .section-title { font-size: 2rem; margin-bottom: 2rem; padding: 0 1rem; }
+  .projects { padding: 3rem 0; }
+  .projects-grid { gap: 2rem; padding: 0.75rem; }
+  .project-card:hover { transform: none; }
+  .project-image-wrapper { width: 100%; max-height: none; }
+  .project-image { width: 100%; height: auto; }
+
+  .experience-section { padding: 3rem 0.75rem; }
+  .experience-list { gap: 2rem; }
+  .experience-card { padding: 1.5rem 1rem; }
+  .experience-company { font-size: 1.5rem; margin-bottom: 1.5rem; }
+  .experience-row { gap: 1rem; text-align: center; }
+  .experience-left, .experience-right { flex: 1 1 100%; }
+  .experience-period { margin-bottom: 1rem; }
+  .experience-right p { font-size: 1rem; line-height: 1.7; }
+
+  .about { padding: 3rem 1rem 4rem; }
+  .about::after { bottom: 1.5rem; }
+  .about-content { max-width: 100%; }
+}
+
+@media (max-width: 480px) {
+  .hero-title { font-size: 1.5rem; }
+  .profile-img { width: 130px; height: 130px; }
+  .about-img { width: 170px; height: 170px; }
+  .button { padding: 0.5rem 1rem; font-size: 0.9rem; }
+  .project-content { padding: 0.5rem; }
 }
