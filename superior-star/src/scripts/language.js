@@ -66,7 +66,7 @@ const translations = {
       },
       "viajero": {
         "title": "Archivos del Viajero",
-        "description": "Archivos del Viajero es una aplicación web <span class=\"text-purple-400 font-semibold\">full-stack</span> para entusiastas de los viajes. Permite <span class=\"text-purple-400 font-semibold\">registrar aventuras</span>, explorar destinos y <span class=\"text-purple-400 font-semibold\">compartir experiencias</span> con otros viajeros.",
+        "description": "Archivos del Viajero es una aplicación web <span class=\"text-purple-400 font-semibold\">full-stack</span> para explorar Destiny 1 y Destiny 2: lore, equipo, personajes, lugares, lanzamientos, cinemáticas y línea temporal. Incluye búsqueda, fichas localizadas y colecciones de objetos organizadas por lanzamiento.",
         "viewCode": "Código",
         "viewPage": "Ver página"
       }
@@ -153,7 +153,7 @@ const translations = {
       },
       "viajero": {
         "title": "Traveler's Archive",
-        "description": "Traveler's Archive is a <span class=\"text-indigo-400 font-semibold\">full-stack</span> web application for travel enthusiasts. It lets you <span class=\"text-indigo-400 font-semibold\">record your adventures</span>, explore destinations, and <span class=\"text-indigo-400 font-semibold\">share experiences</span> with other travelers.",
+        "description": "Traveler's Archive is a <span class=\"text-indigo-400 font-semibold\">full-stack</span> web application for exploring Destiny 1 and Destiny 2: lore, gear, characters, locations, releases, cinematics, and timeline. It includes search, localized pages, and item collections organized by release.",
         "viewCode": "Code",
         "viewPage": "View Page"
       }
